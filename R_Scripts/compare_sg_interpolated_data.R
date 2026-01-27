@@ -64,17 +64,15 @@ for(fname in csv_files){
   # -----------------------------
   # Clean & prepare (USE ndvi_sg)
   # -----------------------------
-
   l7 <- l7 %>%
-  dplyr::filter(!is.na(ndvi_sg)) %>%
-  arrange(date) %>%
-  mutate(sensor = "Landsat 7")
+    filter(!is.na(ndvi_sg)) %>%
+    arrange(date) %>%
+    mutate(sensor = "Landsat 7")
 
   l89 <- l89 %>%
-    dplyr::filter(!is.na(ndvi_sg)) %>%
+    filter(!is.na(ndvi_sg)) %>%
     arrange(date) %>%
     mutate(sensor = "Landsat 8/9")
-
 
   data_all <- bind_rows(l7, l89)
 
